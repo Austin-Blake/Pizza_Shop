@@ -22,7 +22,7 @@ const Provider = ({ children }) => {
     const getProducts = async () => {
         try {
             dispatch({ type: 'SENDING_REQUEST' });
-            const res = await fetch('https://fakestoreapi.com/products');
+            const res = await fetch('https://fakestoreapi.com/products?limit=5');
             const data = await res.json();
             console.log(data);
             dispatch({ type: 'REQUEST_FINISHED' });
@@ -34,7 +34,7 @@ const Provider = ({ children }) => {
 
     return (
         <MyContext.Provider value={{
-            products: [],
+            products: state.products,
             // id: state.id,
             // title: state.title,
             // price: state.price,

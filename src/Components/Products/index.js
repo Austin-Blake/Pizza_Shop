@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import MyContext from '../../Context/MyContext';
+import {productData} from './data'
 
 import {
     ProductsContainer,
@@ -16,12 +17,11 @@ import {
 
 export const Products = ({ heading, data }) => {
     const myContext = useContext(MyContext);
-    const { getProducts, loading } = myContext;
+    const { getProducts, loading, products } = myContext;
 
     useEffect(() => {
-    //    getProducts();
+    // getProducts();
     }, []);
-
 
     return (
         <ProductsContainer>
@@ -35,7 +35,7 @@ export const Products = ({ heading, data }) => {
                                 <ProductTitle>{product.name}</ProductTitle>
                                 <ProductDesc>{product.desc}</ProductDesc>
                                 <ProductPrice>{product.price}</ProductPrice>
-                                <ProductButton>{product.button}</ProductButton>
+                                <ProductButton>Add to Cart</ProductButton>
                             </ProductInfo>
                         </ProductCard>  
                     )
